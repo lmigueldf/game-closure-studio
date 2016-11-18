@@ -1,0 +1,316 @@
+.grid {
+	position: relative;
+	margin: 1px auto;
+	max-width: 1000px;
+	list-style: none;
+	text-align: center;
+	margin: auto;
+}
+
+/* Common style */
+.grid figure {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	/* margin: 10px 1%; */
+	min-width: 250px;
+	max-width: 480px;
+	max-height: 360px;
+	width: 48%;
+	background: #000000;
+	/*text-align: center;*/
+	/*cursor: pointer;*/
+	margin: 5px;
+}
+
+.grid figure img {
+	position: relative;
+	display: block;
+	
+	max-width: 100%;
+	opacity: 1;
+	-webkit-transition: opacity 0.35s;
+	transition: opacity 0.35s;
+	-webkit-backface-visibility: hidden; /* Fix for Chrome 37.0.2062.120 (Mac) */
+}
+
+.grid figure figcaption {
+	padding: 2em;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.25em;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+	pointer-events: none;
+}
+
+.grid figure figcaption,
+.grid figure figcaption > a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+.grid figure figcaption > a {
+	z-index: 1000;
+	text-indent: 200%;
+	white-space: nowrap;
+	font-size: 0;
+	opacity: 0;
+}
+
+.grid figure h2 {
+	word-spacing: -0.15em;
+	font-weight: 300;
+}
+
+.grid figure h2 span {
+	font-weight: 800;
+}
+
+.grid figure h2,
+.grid figure p {
+	margin: 0;
+}
+
+.grid figure p {
+	letter-spacing: 1px;
+	font-size: 68.5%;
+	display: inline-table;
+}
+
+
+@media screen and (max-width: 50em) {
+	.content {
+		padding: 0 10px;
+		text-align: center;
+	}
+	.grid figure {
+		display: inline-block;
+		float: none;
+		margin: 10px auto;
+		width: 100%;
+	}
+
+	figure.effect-zoe figcaption .iconsholder{
+		bottom:1em;
+		position:absolute;
+		right:1em;
+	}
+
+	figure.effect-zoe figcaption a{
+		color:#000;
+		margin-right:8px;
+	}
+}
+@media screen and (max-width: 480px) {
+	.grid{
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+	.owl-stage-outer #foogall-557{
+		max-width: 300px;
+		margin: 0 auto;
+		margin-left: 5px;
+	}
+	figure.effect-zoe p.description {
+		visibility:hidden;
+	}
+	.grid figure {
+		display: inline-block;
+		text-align:center;
+	}
+	figure.effect-zoe h2 {
+		width:100% !important;
+		text-align:center !important;
+		position:relative !important;
+		margin-top:0px;
+	}
+	figure.effect-zoe figcaption .iconsholder{
+		width:80%;
+		text-align:center;
+	}
+
+	figure.effect-zoe figcaption a{
+		color:#000;
+		margin-right:8px;
+	}
+	figure.effect-zoe:hover figcaption,
+	figure.effect-zoe:hover h2,
+	figure.effect-zoe:hover p.icon-links a {
+		-webkit-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+		margin-top: inherit;
+		text-align: center !important;
+	}
+	
+	figure.effect-zoe figcaption .icons_holder{
+		width:90%;
+		text-align:center;
+		margin:0 auto;
+	}
+	
+	figure.effect-zoe {
+		text-align:center;
+	}
+	figure.effect-zoe:hover h2:after{
+		position: relative;
+		bottom: -3px !important;
+		left: 30% !important;
+	}
+}
+/*---------------*/
+/***** Zoe *****/
+/*---------------*/
+
+figure.effect-zoe figcaption .icons_holder{
+	bottom: 1em;
+	position:absolute;
+	right: 1em;
+}
+
+figure.effect-zoe figcaption a{
+	color:#aaa;
+	margin-right:8px;
+}
+figure.effect-zoe figcaption a:hover{
+	color:#707070;
+	margin-right:8px;
+}
+
+figure.effect-zoe figcaption {
+	top: auto;
+	bottom: 0;
+	padding-top: 1em;
+	/* height: 3.75em; */
+	background: #fff;
+	opacity: 0.9;
+	color: #3c4a50;
+	-webkit-transition: -webkit-transform 0.35s;
+	transition: transform 0.35s;
+	-webkit-transform: translate3d(0,100%,0);
+	transform: translate3d(0,100%,0);
+}
+
+figure.effect-zoe {
+	background: #000;
+	text-align: left;
+}
+
+figure.effect-zoe img {
+	opacity: 1;
+	-webkit-transition: opacity 0.55s;
+	transition: opacity 0.55s;
+}
+
+figure.effect-zoe:hover img {
+	opacity: 0.3;
+}
+
+
+figure.effect-zoe h2 {
+	float: left;
+}
+
+figure.effect-zoe p.icon-links a {
+	float: right;
+	color: #3c4a50;
+	font-size: 1.4em;
+}
+
+figure.effect-zoe:hover p.icon-links a:hover,
+figure.effect-zoe:hover p.icon-links a:focus {
+	color: #252d31;
+}
+
+figure.effect-zoe p.description {
+	top: 100px;
+	width: 83%;
+	/* background-color: greenyellow; */
+	text-transform: none;
+	position:absolute;
+	/* font-size: 90%; */
+	opacity: 0;
+	-webkit-transition: opacity 0.7s;
+	transition: opacity 0.7s;
+	-webkit-backface-visibility: hidden; /* Fix for Chrome 37.0.2062.120 (Mac) */
+}
+
+figure.effect-zoe h2,
+figure.effect-zoe p.icon-links a {
+	/* -webkit-transition: -webkit-transform 0.35s; */
+	/* transition: transform 0.35s; */
+	/* -webkit-transform: translate3d(0,200%,0); */
+	/* transform: translate3d(0,200%,0); */
+	position:absolute;
+	line-height: 30px;
+	margin-right: 8px;
+	font-size: x-large;
+}
+
+figure.effect-zoe h2 {
+	display: inline-block;
+	margin-top: 40px;
+	text-align: left;
+	opacity: 0;
+}
+
+figure.effect-zoe:hover p.description {
+	opacity: 1;
+	/* display: block; */
+}
+
+figure.effect-zoe:hover h2:after{
+position: absolute;
+margin: auto;
+z-index: 1;
+content: "";
+width: 40%;
+height: 1px;
+background: #e96656;
+bottom: -11px;
+left: 0;
+}
+
+figure.effect-zoe:hover h2{
+	opacity: 1;
+	-webkit-transition: opacity 0.7s;
+	transition: opacity 0.7s;
+	-webkit-backface-visibility: hidden; /* Fix for Chrome 37.0.2062.120 (Mac) */
+}
+
+figure.effect-zoe:hover figcaption,
+figure.effect-zoe:hover h2,
+figure.effect-zoe:hover p.icon-links a {
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+	margin-top: 30px;
+}
+
+figure.effect-zoe:hover h2 {
+	/* -webkit-transition-delay: 0.05s; */
+	/* transition-delay: 0.05s; */
+}
+
+figure.effect-zoe:hover p.icon-links a:nth-child(3) {
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+
+figure.effect-zoe:hover p.icon-links a:nth-child(2) {
+	-webkit-transition-delay: 0.15s;
+	transition-delay: 0.15s;
+}
+
+figure.effect-zoe:hover p.icon-links a:first-child {
+	-webkit-transition-delay: 0.2s;
+	transition-delay: 0.2s;
+}

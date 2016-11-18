@@ -3,6 +3,7 @@
 *** Server Bootstrap ***
 ************************
 ************************/
+// express magic :P
 var express = require('express');
 var app = express();
 var path = require('path');
@@ -12,6 +13,7 @@ var favicon = require('static-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var multer = require('multer');
+//var upload = multer({dest: path.join(__dirname, 'uploads')});
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, path.join(__dirname, 'public', 'images'))
@@ -65,13 +67,15 @@ var Apps = require('./devkit/src/apps/App');
 
      /**
       * @One_Flag_Studio
-      * Change modules loading rules to use devkit base chached core and
+      * Change modules loading rules to use devkit base cached core and
       * cloud available modules for devkit.
       *
       *    - addToQueue(_this.paths.root); // replaced
       */
-     addToQueue(path.join(__dirname, 'cache'));
-     var toLoadModules  =  require(path.resolve(_this.paths.root, 'manifest.json')).modules;
+     var addons = require(path.resolve(_this.paths.root, 'manifest.json')).addons;
+     var devkitCoreVersion = addons.devkitVersion || 'default';
+     addToQueue(path.join(__dirname, 'cache', devkitCoreVersion));
+     var toLoadModules  =  addons.plugins;
      for(var index in toLoadModules){
          addToQueue(path.join(__dirname, 'devkit_modules', toLoadModules[index]));
      }
@@ -185,8 +189,14 @@ app.post('/api/delete', upload.single('__none'), routes.deleteFile);
 app.get('/api/available_modules', routes.getAvailableModules);
 app.post('/api/toggle_module', upload.single('__none'), routes.toggleModule);
 
+// OFS Analytics
+app.post('/api/event', upload.single('__none'), routes.analytics);
+app.post('/api/views', upload.single('__none'), routes.getViews);
+
 // Noide integration
 app.get('/editor', routes.editor);
+// Landing Page
+app.get('/home', routes.landing);
 // GC Devkit Integration
 var devkit = require('./devkit/src/serve');
 devkit.serveWeb({port: 9200, server: server, app: app, sockets: io, singlePort: true});

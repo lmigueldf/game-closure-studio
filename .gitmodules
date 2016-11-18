@@ -1,3 +1,6 @@
-[submodule "modules/native-android"]
-	path = cache/modules/devkit-core
-	url = https://github.com/gameclosure/devkit-core
+[submodule "modules/devkit-core"]
+	path = cache/default/modules
+	url = https://github.com/hashcube/devkit-core.git
+[submodule "devkit-core"]
+	path = devkit-core
+	url = https://github.com/hashcube/devkit-core.git

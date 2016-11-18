@@ -28,4 +28,4 @@ node_modules
 bower_components
 
 .DS_Store
-/projects/1470321671474/build/
+/projects/*/*/*/build/

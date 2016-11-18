@@ -6,6 +6,9 @@
   "main": "server.js",
   "private": true,
   "repository": "",
+  "scripts": {
+    "preinstall": "sh scripts/preinstall.sh"
+  },
   "dependencies": {
     "bluebird": "^2.3.6",
     "body-parser": "1.x",
@@ -17,7 +20,7 @@
     "express-device": "~0.3.7",
     "ff": "0.2.0",
     "filesize": "*",
-    "jsio": "^2.0.1",
+    "jsio": "2.0.1",
     "lockfile": "^1.0.0",
     "mime": "1.2.11",
     "mixpanel": "0.0.18",

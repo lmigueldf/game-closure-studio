@@ -11,7 +11,7 @@ module.exports = {
             console.info('Watcher already exists');
             return watchers[pid];
         }
-        var basePath = '../../projects/'+ pid +'/';
+        var basePath = '../../projects/'+ pid +'/myProject/root/';
         watchers[pid] = chokidar.watch(p.join(__dirname, basePath), {
             ignored: function (path, stat) {
                 // This function gets called twice per path.
